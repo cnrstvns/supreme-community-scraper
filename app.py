@@ -3,7 +3,6 @@ from dhooks import Webhook, Embed
 import datetime
 from bs4 import BeautifulSoup
 import requests
-import discord
 
 app = Flask(__name__)
 
