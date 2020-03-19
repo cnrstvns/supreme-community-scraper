@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>connor's supcom scraper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://kit.fontawesome.com/439fc1a373.js"></script>
+
+        <link rel="icon" type="image/png" href="../static/16.png">
+
+        <style>
+            body {
+                background-color: #525252;
+            }
+
+            .container {
+                max-width: 60%;
+                text-align: center;
+            }
+
+            .space {
+                padding: 1em;
+            }
+
+            a {
+                color: white;
+            }
+
+            .round {
+                border-radius: 50%;
+            }
+
+            h2 {
+                color: white;
+            }
+
+        </style>
+
+        <script>
+            function send(){
+                if(document.getElementById("link").value == 0){
+                    console.log("Error")
+                    sweetAlert('Error!', 'The link to the droplist cannot be empty.', 'warning');
+                }
+                else if(document.getElementById("webhook").value == ""){
+                    sweetAlert('Error', 'The webhook field cannot be empty.', 'warning');
+                }
+                else if(document.getElementById("group").value == ""){
+                    sweetAlert('Error', 'The group field cannot be empty.', 'warning');
+                }
+                else if(document.getElementById("icon").value == ""){
+                    sweetAlert('Error', 'The icon field cannot be empty.', 'warning');
+                }
+                else{
+                sweetAlert('Success!', 'The droplist is being sent to your webhook.', 'success');
+                }
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <br>
+            <h2>connorstevens#0001</h2>
+            <h2>Supreme Community Scraper</h2>
+            <form class="form" method="POST" action="/send">
+                <div class="input-group flex-nowrap space">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Link</span>
+                    </div>
+                    <input name="link" id="link" type="text" class="form-control" placeholder="https://supremecommunity.com/season/spring-summer2020/" aria-label="Link" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap space">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Webhook</span>
+                    </div>
+                    <input name="webhook" id="webhook" type="text" class="form-control" placeholder="https://discordapp.com/api/webhooks/" aria-label="Webhook" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap space">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Group</span>
+                    </div>
+                    <input name="group" id="group" type="text" class="form-control" placeholder="Profit Prophets" aria-label="Group" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap space">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Icon</span>
+                    </div>
+                    <input name="icon" id="icon" type="text" class="form-control" placeholder="https://imgur.com/i/" aria-label="Icon" aria-describedby="addon-wrapping">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick=send()>Send to Webhook</button>
+            </form>
+            <br>
+            <br>
+            <a href="https://twitter.com/cnrstvns"><i class="fab fa-twitter fa-5x"></i></a>
+            <a href="https://instagram.com/bergenhype"><i class="fab fa-instagram fa-5x"></i></a>
+        </div>
+    </body>
+
+</html>
