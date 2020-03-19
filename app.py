@@ -23,7 +23,7 @@ def form():
         group = request.form.get('group')
         icon = request.form.get('icon')
         print(f"Sending list {link} to {hook} for {group}")
-
+        #comment
         wh = Webhook(hook)
 
         try:
