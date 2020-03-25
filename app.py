@@ -22,7 +22,6 @@ def form():
         group = request.form.get('group')
         icon = request.form.get('icon')
         print(f"Sending list {link} to {hook} for {group}")
-        #comment
         wh = Webhook(hook)
 
         try:
@@ -37,9 +36,18 @@ def form():
                     price = card.find(class_="label-price")
                     ratio = card.find(class_="upvotesratio hidden")
                     embed = Embed(title=f"{name.text}", description="", color=0xff2b2b, timestamp="now")
-                    embed.set_image(url=imageUrl)
-                    embed.add_field(name="Price", value=f"{price.text}", inline=False)
-                    embed.add_field(name="Vote Ratio", value=f"{str(ratio.text)[:5]}% Positive", inline=False)
+                    try:
+                        embed.set_image(url=imageUrl)
+                    except:
+                        print("no image")
+                    try:
+                        embed.add_field(name="Price", value=f"{price.text}", inline=False)
+                    except:
+                        embed.add_field(name="Price", value=f"No Prices Yet", inline=False)
+                    try:
+                        embed.add_field(name="Vote Ratio", value=f"{str(ratio.text)[:5]}% Positive", inline=False)
+                    except:
+                        print("no ratio")
                     embed.set_footer(f"connorstevens#0001 x {group}", icon_url=f"{icon}")
                     wh.send(embed=embed)
                 except Exception as e:
